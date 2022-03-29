@@ -5,7 +5,7 @@ const todosHardcodea2 = [
   { text: "shambular primero", completed: false },
   { text: "bambular después", completed: false },
   { text: "shmegels", completed: false },
-  { text: "garrarlapala", completed: false },
+  { text: "garrarlapala", completed: true },
 ];
 
 function App() {
