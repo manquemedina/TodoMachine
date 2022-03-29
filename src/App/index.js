@@ -1,12 +1,15 @@
 import { useState } from "react";
 import { AppUI } from "./AppUI";
 
-const todosHardcodea2 = [
+/* const todosHardcodea2 = [
   { text: "shambular primero", completed: false },
   { text: "bambular después", completed: false },
   { text: "shmegels", completed: false },
   { text: "garrarlapala", completed: true },
-];
+]; */
+
+//CUSTOM HOOK p localStorage
+
 
 function App() {
   //Lógica para persistencia de datos en localStorage
