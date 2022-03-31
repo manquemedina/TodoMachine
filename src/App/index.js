@@ -39,7 +39,7 @@ function useLocalStorage(itemName, initialValue) {
         setError(error);
       }
     }, 1000);
-  });
+  },[]);
 
   //función para persistir datos, que vamos a llamar en los metodos complete/delete Todo
   const saveItem = (newItem) => {
