@@ -27,7 +27,7 @@ function AppUI({
       <TodoList>
         {error && (
           <p>
-            Caos Muerte y Destrucción: <strong>ERROR 🌋</strong>
+            <strong>🌋ERROR: </strong>Caos Muerte y Destrucción!
           </p>
         )}
         {loading && <p>Calmachicha tamo en eso ⏰</p>}
