@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useEffect } from "react";
 import { AppUI } from "./AppUI";
 
 /* const todosHardcodea2 = [
@@ -10,35 +11,62 @@ import { AppUI } from "./AppUI";
 
 //CUSTOM HOOK p localStorage
 function useLocalStorage(itemName, initialValue) {
-  //chekea a ver si existe el item
-  const localStorageItem = localStorage.getItem(itemName);
-  let parsedItem;
-  //condicional p que si existe lo parsee y devuelva, y si no lo declare y asigne initialValue
-  if (!localStorageItem) {
-    localStorage.setItem(itemName, JSON.stringify(initialValue));
-    parsedItem = initialValue;
-  } else {
-    parsedItem = JSON.parse(localStorageItem);
-  }
-  //manejo de estado (antes estaba en <App> y ahora lo trajimos al custom hook)
-  const [item, setItem] = useState(parsedItem);
+  //Para simular la asincronicidad de una API en el back que tendríamos que esperar que devuelva nuestra data ponemos es parte de la lógica en un setTimeOut
+  //primero traemos nuestro estado arriba y a useState le pasamos initialValue, ya que parsedItem (quepasábamos antes) quedó dentro del timeOut y fuera del scope de nuestro Hook
+  //luego generamos los dos estados nuevos que necesitamos, loading y error
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [item, setItem] = useState(initialValue);
+  useEffect(() => {
+    setTimeout(() => {
+      //Todo dentro de un bloque try-catch, para que actualice nuestro estado de loading (en el try), y si ocurre algo corre el catch(error)
+      try {
+        //chekea a ver si existe el item
+        const localStorageItem = localStorage.getItem(itemName);
+        let parsedItem;
+        //condicional p que si existe lo parsee y devuelva, y si no lo declare y asigne initialValue
+        if (!localStorageItem) {
+          localStorage.setItem(itemName, JSON.stringify(initialValue));
+          parsedItem = initialValue;
+        } else {
+          parsedItem = JSON.parse(localStorageItem);
+          //Desde dentro del timeOut (fake API) actualizamos el estado con el valor de parsedItem
+          setItem(parsedItem);
+          //actualizamos nuestro estado loading, que inicialmente va a ser true, a false, xq ya cargó wey
+          setLoading(false);
+        }
+      } catch (error) {
+        setError(error);
+      }
+    }, 1000);
+  });
+
   //función para persistir datos, que vamos a llamar en los metodos complete/delete Todo
   const saveItem = (newItem) => {
-    const stringifyedItem = JSON.stringify(newItem);
-    localStorage.setItem(itemName, stringifyedItem);
-    //nuestro setter del estado, que antes teníamos en <App> y trajimos al custom hook
-    setItem(newItem);
+    try {
+      const stringifyedItem = JSON.stringify(newItem);
+      localStorage.setItem(itemName, stringifyedItem);
+      //nuestro setter del estado, que antes teníamos en <App> y trajimos al custom hook
+      setItem(newItem);
+    } catch (error) {
+      setError(error);
+    }
   };
   //retorno de nuestro estado y su func actualizadora
-  return [item, saveItem];
+  return { item, saveItem, loading, error };
 }
 
 function App() {
   //Lógica para persistencia de datos en localStorage
 
   //estados//
-  //una vez implementado, useLocalStorage nos tiene q devolver la func actualizadora del estado
-  const [todos, saveTodos] = useLocalStorage("TODOS_V1", []);
+  //cuando traemos más de un estado desde un componente ya no comviene hacerlo en un array, sino en un objeto. En éste caso, que al estado de todos/saveTodos que traíamos de nuestro hook, le sumamos el estado de loading y error hacemos esto de traerlo en formato objeto y en ahí mismo renombramos, ya que lo que acá habiamos llamado "todos" nuestro hook nos lo pasa abstraído como "item"
+  const {
+    item: todos,
+    saveItem: saveTodos,
+    loading,
+    error,
+  } = useLocalStorage("TODOS_V1", []);
   const [searchValue, setSearchValue] = useState(""); //estado levantado desde TodoSearch para que sea accesible por los demas componentes
 
   //Props para el TodoCounter//
@@ -90,6 +118,8 @@ function App() {
   // Nuestra UI
   return (
     <AppUI
+      loading={loading}
+      error={error}
       totalTodos={totalTodos}
       completedTodos={completedTodos}
       searchValue={searchValue}

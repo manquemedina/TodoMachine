@@ -5,8 +5,9 @@ import { TodoList } from "../TodoList";
 import { TodoSearch } from "../TodoSearch";
 import { CreateTodoButton } from "../CreateTodoButton";
 
-
 function AppUI({
+  loading,
+  error,
   totalTodos,
   completedTodos,
   searchValue,
@@ -24,6 +25,14 @@ function AppUI({
       {/* componente parent App pasa el estado como props al children TodoSearch */}
       {/* Acá tenemos que cablear la función completeTodos */}
       <TodoList>
+        {error && (
+          <p>
+            Caos Muerte y Destrucción: <strong>ERROR 🌋</strong>
+          </p>
+        )}
+        {loading && <p>Calmachicha tamo en eso ⏰</p>}
+        {!loading && !searchedTodos.length && <h5>Crea tu primera tarea!🤓</h5>}
+
         {searchedTodos.map((todo) => (
           <TodoItem
             key={
