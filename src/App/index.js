@@ -9,24 +9,36 @@ import { AppUI } from "./AppUI";
 ]; */
 
 //CUSTOM HOOK p localStorage
-
+function useLocalStorage(itemName, initialValue) {
+  //chekea a ver si existe el item
+  const localStorageItem = localStorage.getItem(itemName);
+  let parsedItem;
+  //condicional p que si existe lo parsee y devuelva, y si no lo declare y asigne initialValue
+  if (!localStorageItem) {
+    localStorage.setItem(itemName, JSON.stringify(initialValue));
+    parsedItem = initialValue;
+  } else {
+    parsedItem = JSON.parse(localStorageItem);
+  }
+  //manejo de estado (antes estaba en <App> y ahora lo trajimos al custom hook)
+  const [item, setItem] = useState(parsedItem);
+  //función para persistir datos, que vamos a llamar en los metodos complete/delete Todo
+  const saveItem = (newItem) => {
+    const stringifyedItem = JSON.stringify(newItem);
+    localStorage.setItem(itemName, stringifyedItem);
+    //nuestro setter del estado, que antes teníamos en <App> y trajimos al custom hook
+    setItem(newItem);
+  };
+  //retorno de nuestro estado y su func actualizadora
+  return [item, saveItem];
+}
 
 function App() {
   //Lógica para persistencia de datos en localStorage
 
-  const localStorageTodos = localStorage.getItem("TODOS_V1");
-  let parsedTodos;
-
-  if (!localStorageTodos) {
-    localStorage.setItem("TODOS_V1", JSON.stringify([]));
-    parsedTodos = [];
-  } else {
-    parsedTodos = JSON.parse(localStorageTodos);
-  }
-
   //estados//
-
-  const [todos, setTodos] = useState(parsedTodos);
+  //una vez implementado, useLocalStorage nos tiene q devolver la func actualizadora del estado
+  const [todos, saveTodos] = useLocalStorage("TODOS_V1", []);
   const [searchValue, setSearchValue] = useState(""); //estado levantado desde TodoSearch para que sea accesible por los demas componentes
 
   //Props para el TodoCounter//
@@ -58,14 +70,7 @@ function App() {
     });
   }
 
-  //Lógica para completar Todos//
-
-  //función para persistir datos en localStorage, que vamos a llamar en los metodos complete/delete Todo
-  const saveTodo = (newTodos) => {
-    const stringifyedTodos = JSON.stringify(newTodos);
-    localStorage.setItem("TODOS_V1", stringifyedTodos);
-    setTodos(newTodos);
-  };
+  //Lógica para completar y eliminar Todos//
 
   //ésta función recibe el texto, que es el identificador único de nuestros todos y genera un nuevo array con TODAS nuestras tareas para reemplazar nuestro estado anterior "todos", pero marcando la propiedad "completed" como true del index que le pasamos a la funcion:
 
@@ -73,13 +78,13 @@ function App() {
     const todoIndex = todos.findIndex((todo) => todo.text === text);
     const newTodos = [...todos]; //clonamos array (importante el destructuring)
     newTodos[todoIndex].completed = true; //seteamos completed de nuestro índice
-    saveTodo(newTodos); //llamamos método actualizador de nuestro estado pasandole nuestro array con el todo actualizado
+    saveTodos(newTodos); //llamamos actualizador de nuestro estado (ahora manejado por el customHook) pasandole nuestro array con el todo actualizado
   };
   const deleteTodo = (text) => {
     const todoIndex = todos.findIndex((todo) => todo.text === text);
     const newTodos = [...todos];
     newTodos.splice(todoIndex, 1);
-    saveTodo(newTodos); //llamamos método actualizador de nuestro estado pasandole nuestro array con el todo completado
+    saveTodos(newTodos); //llamamos método actualizador de nuestro estado pasandole nuestro array con el todo completado
   };
 
   // Nuestra UI
