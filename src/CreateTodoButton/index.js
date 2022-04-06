@@ -1,3 +1,6 @@
 export function CreateTodoButton(props) {
-  return <button onClick={() => console.log("click")}>🤓add Todo</button>;
+  const onClickButton = () => {
+    props.setOpenModal(!props.openModal);
+  };
+  return <button onClick={onClickButton}>🤓add Todo</button>;
 }
