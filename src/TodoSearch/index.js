@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import { TodoContext } from "../TodoContext";
 
 //para dudas referenciarse al tuto https://platzi.com/clases/2444-react/40308-manejo-del-estado/

@@ -1,5 +1,3 @@
-import { useState } from "react";
-import { useEffect } from "react";
 import { AppUI } from "./AppUI";
 import { TodoProvider } from "../TodoContext";
 

@@ -34,7 +34,7 @@ function AppUI() {
         )}
         {loading && <p>Calmachicha tamo en eso ⏰</p>}
         {!loading && !searchedTodos.length && <h5>Crea tu primera tarea!🤓</h5>}
-        ;
+
         {searchedTodos.map((todo) => (
           <TodoItem
             key={
