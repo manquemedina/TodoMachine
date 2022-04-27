@@ -1,8 +1,59 @@
 import React from "react";
 import { TodoContext } from "../TodoContext";
+import styled from "styled-components";
 
 //para dudas referenciarse al tuto https://platzi.com/clases/2444-react/40308-manejo-del-estado/
 //minuto 10:30 hace un recap épico de la lógica por si no la entedés cuando vuelvas.
+
+const TodoSearchDiv = styled.div`
+  display: flex;
+
+  background-color: orangered;
+  text-align: right;
+  padding: 0.5rem;
+  justify-items: center;
+  align-items: center;
+  @media (max-width: 425px) {
+    flex-direction: column;
+    margin: 1rem;
+  } /* justify-content: space-between; */
+`;
+const SearchInput = styled.input`
+  height: 1.5rem;
+  width: 8rem;
+  margin-right: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1rem;
+  font-family: "Quicksand", sans-serif;
+  :hover {
+    width: 16rem;
+    border: 2px solid orangered;
+  }
+  :focus {
+    width: 16rem;
+    border: 2px solid orangered;
+  }
+  :active {
+    width: 16rem;
+    border: 2px solid orangered;
+  }
+  @media (max-width: 460px) {
+    margin-right: 0;
+    :hover {
+      width: 8rem;
+      border: 2px solid orangered;
+    }
+    :focus {
+      width: 8rem;
+      border: 2px solid orangered;
+    }
+    :active {
+      width: 8rem;
+      border: 2px solid orangered;
+    }
+  }
+`;
 
 export function TodoSearch() {
   //al levantar el estado sacamos estos dos valores del cuerpo de nuestra función local y le decimos a ésta que los va a recibir como props cuando llamemos al componente TodoSearch desde su parent, App
@@ -15,13 +66,15 @@ export function TodoSearch() {
 
   return (
     <>
-      <input
-        className="TodoSearch"
-        placeholder="Search task"
-        value={searchValue}
-        onChange={onSearchValueChange} //asignación de handler al evento onChange
-      />
-      <p>{searchValue}</p> {/* ésto está solo a fines de ver cómo renderiza */}
+      <TodoSearchDiv>
+        <SearchInput
+          className="TodoSearch"
+          placeholder="search Tasks"
+          value={searchValue}
+          onChange={onSearchValueChange} //asignación de handler al evento onChange
+        />
+      </TodoSearchDiv>
+      {/* ésto está solo a fines de ver cómo renderiza */}
     </>
   );
 }
