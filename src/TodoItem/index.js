@@ -12,14 +12,15 @@ const StyledTodoItem = styled.li`
   font-weight: 800;
   border-radius: 10px;
   color: #333;
+  opacity: 0.7;
   margin: 0.5rem 1rem;
   padding: 1rem;
-  max-width: 25rem;
-  min-width: fit-content;
-  height: auto;
+  max-width: fit-content;
+  height: min-content;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   :hover {
     background-color: #eac253;
+    opacity: 1;
   }
   @media (max-width: 592px) {
     margin: 1rem auto;
@@ -33,8 +34,21 @@ const Icondiv = styled.div`
   align-items: center;
   justify-content: right;
 `;
-const Span = styled.span`
-  margin: 0 1rem;
+const Span1 = styled.span`
+  margin: 0 0.2rem;
+  cursor: pointer;
+  width: 2.5rem;
+  /* padding: 1rem; */
+  border-radius: 10px;
+  background-color: #eac253;
+`;
+const Span2 = styled.span`
+  margin: 0 0.2rem;
+  cursor: pointer;
+  width: 2.5rem;
+  /*   padding: 1rem; */
+  border-radius: 70px;
+  background-color: #777;
 `;
 
 export function TodoItem(props) {
@@ -42,8 +56,8 @@ export function TodoItem(props) {
     <StyledTodoItem>
       <p children={props.text} />
       <Icondiv>
-        <Span onClick={props.onComplete}>✔️</Span>
-        <Span onClick={props.onDelete}>☠️</Span>
+        <Span1 onClick={props.onComplete}>✔︎</Span1>
+        <Span2 onClick={props.onDelete}>✘</Span2>
       </Icondiv>
     </StyledTodoItem>
   );

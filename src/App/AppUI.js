@@ -31,21 +31,22 @@ const AddTaskWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 .5rem 1rem 1rem;
+  margin: 0 0.5rem 1rem 1rem;
   border-radius: 10px;
   background-color: #eac253;
   box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
 `;
 
 const LoadingCard = styled.div`
-  background-color: #333;
-  color: #eac253;
+  background-color: #777;
+  color: #333;
   font-size: 1.2em;
   margin: 0rem 2rem;
   text-align: center;
   font-family: "Quicksand", sans-serif;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+  opacity: 0.9;
 `;
 const Span = styled.span`
   color: #888;
@@ -78,11 +79,7 @@ function AppUI() {
 
         <TodoList>
           {/* las lineas de error y loading/!loading funcionan como un condicional, si error es true entonces el contenido de la etiqueta <p>, (que es true por defecto) indican que se cumplen las dos condiciones del && y renderiza, y si error es false da igual xq ya no va a cumplir el && así que evalúa siguiente caso, loading y así. */}
-          {error && (
-            <LoadingCard>
-              ups! ಥ﹏ಥ
-            </LoadingCard>
-          )}
+          {error && <LoadingCard>ups! ಥ﹏ಥ</LoadingCard>}
           {loading && (
             <LoadingCard>
               <h2>Cargando notas 📀</h2>
@@ -90,7 +87,7 @@ function AppUI() {
           )}
           {!loading && !searchedTodos.length && (
             <LoadingCard>
-              <h2>Agrega tu primera nota!🤓</h2>
+              <h2>Agrega tu primera nota! ✐ </h2>
             </LoadingCard>
           )}
 
