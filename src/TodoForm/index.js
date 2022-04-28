@@ -23,7 +23,7 @@ const Label = styled.label`
   padding: 1rem;
   font-family: "Quicksand", sans-serif;
   font-size: 2rem;
-  font-style: italic;
+  /* font-style: italic; */
 `;
 
 const BtnDiv = styled.div`
@@ -62,7 +62,7 @@ function TodoForm() {
 
   return (
     <Form onSubmit={onSubmit}>
-      <Label>Nueva Nota</Label>
+      <Label>ԅ(≖‿≖ԅ)</Label>
       <TextArea
         value={newTodoValue}
         onChange={onChange}

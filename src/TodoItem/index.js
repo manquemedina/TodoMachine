@@ -12,7 +12,7 @@ const StyledTodoItem = styled.li`
   font-weight: 800;
   border-radius: 10px;
   color: #333;
-  margin: 0 1rem;
+  margin: 0.5rem 1rem;
   padding: 1rem;
   max-width: 25rem;
   min-width: fit-content;
@@ -29,7 +29,7 @@ const Icondiv = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
-  padding: 1rem;
+  padding: 1.5rem 1rem 0;
   align-items: center;
   justify-content: right;
 `;

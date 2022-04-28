@@ -7,15 +7,15 @@ import { TodoSearch } from "../TodoSearch";
 const CounterDiv = styled.div`
   display: flex;
   flex-direction: row;
-  width: 100%;
+  width: auto;
   align-items: center;
   justify-content: space-between;
   justify-items: center;
-  margin: 1rem auto;
+  margin: 1rem 1rem;
   text-align: center;
   color: #fff;
   background-color: #8c8c8c;
-  opacity: 0.7;
+  /* opacity: 0.7; */
   font-size: 1.2rem;
   font-family: "Quicksand", sans-serif;
   border-radius: 10px;
@@ -37,8 +37,8 @@ export function TodoCounter() {
   return (
     <CounterDiv>
       <H2>
-        <span>{completedTodos} shit-completed, </span>
-        <Span>{totalTodos - completedTodos} shit to go!</Span>
+        <span>{completedTodos} chekeadas, </span>
+        <Span>{totalTodos - completedTodos} pendientes.</Span>
       </H2>
       <TodoSearch />
     </CounterDiv>

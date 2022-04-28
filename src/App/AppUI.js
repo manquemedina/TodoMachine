@@ -4,20 +4,21 @@ import { TodoContext } from "../TodoContext";
 import { TodoCounter } from "../TodoCounter";
 import { TodoItem } from "../TodoItem";
 import { TodoList } from "../TodoList";
-import { TodoSearch } from "../TodoSearch";
+/* import { TodoSearch } from "../TodoSearch"; */
 import { CreateTodoButton } from "../CreateTodoButton";
 import { Modal } from "../Modal";
 import { TodoForm } from "../TodoForm";
-import { Header, logo, logo2 } from "../Header";
+import { Header, typeWritterImg } from "../Header";
 
-const ThemeColorMain = "#F6EFE7";
-const ThemeColorSecondary = "#EFE5D9";
-const ThemeColorTerciary = "#8C8C8C";
+/* const amarillo = "#eac253";
+const grisOscuro = "#333";
+const grisCLaro = "#777"; */
 
 const PageWrapper = styled.div`
-  margin: 0;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
+  background-color: #333;
 `;
 const TodoWrapper = styled.div`
   display: flex;
@@ -30,21 +31,24 @@ const AddTaskWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  margin: 0 .5rem 1rem 1rem;
   border-radius: 10px;
   background-color: #eac253;
   box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
 `;
 
 const LoadingCard = styled.div`
-  background-color: #eac253;
-  color: #333;
-  font-size: 2rem;
+  background-color: #333;
+  color: #eac253;
+  font-size: 1.2em;
   margin: 0rem 2rem;
   text-align: center;
   font-family: "Quicksand", sans-serif;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+`;
+const Span = styled.span`
+  color: #888;
 `;
 
 //una vez creado nuestro contexto podemos eliminar las props de los componentes Counter y Search, ya que ahora las van a consumir de nuestro TodoContext.Provider
@@ -61,29 +65,33 @@ function AppUI() {
   } = React.useContext(TodoContext);
   return (
     <PageWrapper>
-      <Header>⊙﹏⊙</Header>
+      <Header>
+        <Span>N</Span>⊙﹏⊙<Span>tas!</Span>
+      </Header>
       <TodoCounter />
       {/* El componente TodoList va a consumir nuestros estados loading y error, implementados dentro del custom Hook, y el resto de props (ahora en el index.js de la carpeta TodoContext), mediate useContext(TodoContext) */}
       <TodoWrapper>
         <AddTaskWrapper>
           <CreateTodoButton openModal={openModal} setOpenModal={setOpenModal} />
-          {logo2}
+          {typeWritterImg}
         </AddTaskWrapper>
 
         <TodoList>
           {/* las lineas de error y loading/!loading funcionan como un condicional, si error es true entonces el contenido de la etiqueta <p>, (que es true por defecto) indican que se cumplen las dos condiciones del && y renderiza, y si error es false da igual xq ya no va a cumplir el && así que evalúa siguiente caso, loading y así. */}
           {error && (
-            <p>
-              <strong>🌋ERROR: </strong>Caos Muerte y Destrucción!
-            </p>
+            <LoadingCard>
+              ups! ಥ﹏ಥ
+            </LoadingCard>
           )}
           {loading && (
             <LoadingCard>
-              <h2>Calmachicha tamo en eso ⏰</h2>
+              <h2>Cargando notas 📀</h2>
             </LoadingCard>
           )}
           {!loading && !searchedTodos.length && (
-            <h2>Crea tu primera tarea!🤓</h2>
+            <LoadingCard>
+              <h2>Agrega tu primera nota!🤓</h2>
+            </LoadingCard>
           )}
 
           {searchedTodos.map((todo) => (
