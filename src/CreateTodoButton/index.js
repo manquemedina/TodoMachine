@@ -9,9 +9,9 @@ const StyledButton = styled.button`
   width: 100%;
   margin: 2rem 0;
   padding: 1rem;
-  font-size: 1.3rem;
-  background-color: orangered;
-  color: #fff;
+  font-size: 1.5rem;
+  background-color: #EAC253;
+  color: #333;
   border-radius: 10px;
   border: none;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
@@ -26,7 +26,7 @@ export function CreateTodoButton(props) {
   };
   return (
     <StyledDiv>
-      <StyledButton onClick={onClickButton}>newShieet🧉</StyledButton>
+      <StyledButton onClick={onClickButton}>ʕ•ᴥ•ʔ</StyledButton>
     </StyledDiv>
   );
 }

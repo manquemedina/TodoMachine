@@ -10,6 +10,10 @@ import { Modal } from "../Modal";
 import { TodoForm } from "../TodoForm";
 import { Header, logo, logo2 } from "../Header";
 
+const ThemeColorMain = "#F6EFE7";
+const ThemeColorSecondary = "#EFE5D9";
+const ThemeColorTerciary = "#8C8C8C";
+
 const PageWrapper = styled.div`
   margin: 0;
   display: flex;
@@ -28,12 +32,21 @@ const AddTaskWrapper = styled.div`
   align-items: center;
 
   border-radius: 10px;
-  background-color: lightslategray;
-  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
-    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
-    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
-
+  background-color: #eac253;
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
 `;
+
+const LoadingCard = styled.div`
+  background-color: #eac253;
+  color: #333;
+  font-size: 2rem;
+  margin: 0rem 2rem;
+  text-align: center;
+  font-family: "Quicksand", sans-serif;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+`;
+
 //una vez creado nuestro contexto podemos eliminar las props de los componentes Counter y Search, ya que ahora las van a consumir de nuestro TodoContext.Provider
 function AppUI() {
   //usamos .useContext(TodoContext) para traer las props de nuestro provider y así evitamos tener que envolver todo en etiqueta <Consumer>
@@ -48,7 +61,7 @@ function AppUI() {
   } = React.useContext(TodoContext);
   return (
     <PageWrapper>
-      <Header>FireTask</Header>
+      <Header>⊙﹏⊙</Header>
       <TodoCounter />
       {/* El componente TodoList va a consumir nuestros estados loading y error, implementados dentro del custom Hook, y el resto de props (ahora en el index.js de la carpeta TodoContext), mediate useContext(TodoContext) */}
       <TodoWrapper>
@@ -64,7 +77,11 @@ function AppUI() {
               <strong>🌋ERROR: </strong>Caos Muerte y Destrucción!
             </p>
           )}
-          {loading && <h2>Calmachicha tamo en eso ⏰</h2>}
+          {loading && (
+            <LoadingCard>
+              <h2>Calmachicha tamo en eso ⏰</h2>
+            </LoadingCard>
+          )}
           {!loading && !searchedTodos.length && (
             <h2>Crea tu primera tarea!🤓</h2>
           )}

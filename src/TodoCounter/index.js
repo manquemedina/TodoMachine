@@ -14,7 +14,7 @@ const CounterDiv = styled.div`
   margin: 1rem auto;
   text-align: center;
   color: #fff;
-  background-color: orangered;
+  background-color: #8c8c8c;
   opacity: 0.7;
   font-size: 1.2rem;
   font-family: "Quicksand", sans-serif;
@@ -28,14 +28,17 @@ const CounterDiv = styled.div`
 const H2 = styled.h2`
   margin: 2rem;
 `;
+const Span = styled.span`
+  color: #eac253;
+`;
 
 export function TodoCounter() {
   const { totalTodos, completedTodos } = React.useContext(TodoContext);
   return (
     <CounterDiv>
       <H2>
-        {completedTodos} shit-completed, {totalTodos - completedTodos} shit to
-        go!
+        <span>{completedTodos} shit-completed, </span>
+        <Span>{totalTodos - completedTodos} shit to go!</Span>
       </H2>
       <TodoSearch />
     </CounterDiv>

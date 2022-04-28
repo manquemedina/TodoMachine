@@ -39,8 +39,8 @@ const Btn = styled.button`
   font-size: 1.2rem;
   font-weight: 700;
   padding: 1rem;
-  background-color: orangered;
-  color: #fff;
+  background-color: #EAC253;
+  color: #333;
   border-radius: 10px;
 `;
 
@@ -62,18 +62,16 @@ function TodoForm() {
 
   return (
     <Form onSubmit={onSubmit}>
-      <Label>New Task</Label>
-      <TextArea value={newTodoValue} onChange={onChange} placeholder="Task" />
+      <Label>Nueva Nota</Label>
+      <TextArea
+        value={newTodoValue}
+        onChange={onChange}
+        placeholder="escribe aquí tu nota:"
+      />
       <BtnDiv>
-        <Btn
-          type="button"
-          className="TodoForm-button TodoForm-button--cancel"
-          onClick={onCancel}
-        >
+        <Btn type="submit">Añadir</Btn>
+        <Btn type="button" onClick={onCancel}>
           Cancelar
-        </Btn>
-        <Btn type="submit" className="TodoForm-button TodoForm-button--add">
-          Añadir
         </Btn>
       </BtnDiv>
     </Form>

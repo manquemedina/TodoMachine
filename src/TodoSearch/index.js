@@ -8,7 +8,7 @@ import styled from "styled-components";
 const TodoSearchDiv = styled.div`
   display: flex;
 
-  background-color: orangered;
+  background-color: #8c8c8c;
   text-align: right;
   padding: 0.5rem;
   justify-items: center;
@@ -21,36 +21,36 @@ const TodoSearchDiv = styled.div`
 const SearchInput = styled.input`
   height: 1.5rem;
   width: 8rem;
-  margin-right: 2rem;
+  margin-right: 1rem;
   border-radius: 10px;
   text-align: center;
   font-size: 1rem;
   font-family: "Quicksand", sans-serif;
   :hover {
     width: 16rem;
-    border: 2px solid orangered;
+    border: 2px solid #8c8c8c;
   }
   :focus {
     width: 16rem;
-    border: 2px solid orangered;
+    border: 2px solid #8c8c8c;
   }
   :active {
     width: 16rem;
-    border: 2px solid orangered;
+    border: 2px solid #8c8c8c;
   }
   @media (max-width: 460px) {
     margin-right: 0;
     :hover {
       width: 8rem;
-      border: 2px solid orangered;
+      border: 2px solid #8c8c8c;
     }
     :focus {
       width: 8rem;
-      border: 2px solid orangered;
+      border: 2px solid #8c8c8c;
     }
     :active {
       width: 8rem;
-      border: 2px solid orangered;
+      border: 2px solid #8c8c8c;
     }
   }
 `;
@@ -68,8 +68,7 @@ export function TodoSearch() {
     <>
       <TodoSearchDiv>
         <SearchInput
-          className="TodoSearch"
-          placeholder="search Tasks"
+          placeholder="buscar notas"
           value={searchValue}
           onChange={onSearchValueChange} //asignación de handler al evento onChange
         />

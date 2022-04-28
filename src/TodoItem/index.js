@@ -6,18 +6,24 @@ const StyledTodoItem = styled.li`
   text-align: center;
   align-items: center;
   justify-content: space-between;
-  background-color: orangered;
+  background-color: #8c8c8c;
   font-family: "Quicksand", sans-serif;
   font-size: 1.2rem;
-  font-weight: 500;
+  font-weight: 800;
   border-radius: 10px;
-  color: white;
-  margin: 1rem;
+  color: #333;
+  margin: 0 1rem;
   padding: 1rem;
   max-width: 25rem;
   min-width: fit-content;
   height: auto;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  :hover {
+    background-color: #eac253;
+  }
+  @media (max-width: 592px) {
+    margin: 1rem auto;
+  } ;
 `;
 const Icondiv = styled.div`
   width: 100%;
@@ -25,7 +31,10 @@ const Icondiv = styled.div`
   flex-direction: row;
   padding: 1rem;
   align-items: center;
-  justify-content: space-between;
+  justify-content: right;
+`;
+const Span = styled.span`
+  margin: 0 1rem;
 `;
 
 export function TodoItem(props) {
@@ -33,8 +42,8 @@ export function TodoItem(props) {
     <StyledTodoItem>
       <p children={props.text} />
       <Icondiv>
-        <span onClick={props.onComplete}>✔️</span>
-        <span onClick={props.onDelete}>☠️</span>
+        <Span onClick={props.onComplete}>✔️</Span>
+        <Span onClick={props.onDelete}>☠️</Span>
       </Icondiv>
     </StyledTodoItem>
   );

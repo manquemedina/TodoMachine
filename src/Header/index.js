@@ -4,13 +4,13 @@ import styled from "styled-components";
 const logo = (
   <img
     style={{ height: "6rem" }}
-    src="https://lh3.googleusercontent.com/I_nJjL0R26VpMXV9702jErEn9_tnDyu-aSMCIwMYEbLNqwbx4QPHGlHrBm6lqocdVipOMQHwgRvOiiWtwu29HP_WYDQEg_-WpoHCHQ_4gu2sKhVpu8m9I44nO-EWPSMl2twJ9LISXrwZSJCbfvQ-VW-PoYQwlIYvOq4__Q7-Lh7sH6ZAyIjx4Y99WzJdog7WXFoKtmVCQnRHcuBk3mgNePuhU4NhW_Ak14bhBsbYxwvAgFrR9rGquLK6_ThY6ooHUYj-Cj8Ca7pmlEN1LMCeXpWXPhjw44xOZvG8gvOUr4Sj3fJ_xMQRQTtHfS0JoYDNGFXLaxfutoQyMxnhYio9Pwl-1qxAlsi_xhNiqBkZHfsHnxoiRiF61_zmSaSfbfoH8zxrulYu234T4IqF2qC4k8lmEaiacngtV83qHCW87tx0_7tvaaBJ5NWhgoMXTizCREMMEkNcqec5NNkTIGWBjr9H9OCjgnJSdCdMA_J4_B772Ja3BSByqu-FSGgW1TMkGgJIe9xYO1Qt8Pe9IFmDaLhtBVhd6HZPEJ0dB8FERMWTNpMxbstc9qrFEYGXSEJ2Vw3DVQFshdZfiyPmmDVR7mlYr-LVn4vrPSAg6xKQUsI6BZr3Xez2lv4ExTmOmmGGEgJsPVPmA8VaY9v7N_EEEtGXwbUx9-vtD4j55_HLQI0v-DJvn4AtZycbMb95cN1DtpBCzWzieyqUf_yWnMmcUm5p-HfEjHR0PsvdbZ5wBKxYqvtwkTaCV57wL08=w568-h757-no?authuser=0"
+    src="https://lh3.googleusercontent.com/dzoqmffDZ6wjcnDS9IMT-bmECFmJ2kZIxRIUIYk7N1QYGzdtE1_VMA3DKdCAi4PZ4F8bZweZdTKicvfHyGl46mo0aD03NFtqfvqx2uTppydxNVa3nyfFmxTyZILyzQ6S5alUqyGw0Sla-pgoiI6K6slNDYygowKVizcy6jkjUHnHmzZ1fkMenvFOUqlAvxHohP0JjJNIFpjtkcgEmndOW99bZr4ySpSB8DU71TSwt9ZynCi2N9DVTe1S8EYbVdlip6cs01AkTc5X3yiS_9wmhROaA3Tz9GSKw84ogygL4Rpf0NMV1M2SU8fe3C4b_PSCt82k-bcQ7obkgk4GJ33--DVYNSMvj3ld0jFArn_iE-P3iIyUnaAtx47w1GRs11tqI6TtcI9cx7yDTBydBd9zEh3u3nI78Kt5NkihlJjJc1B5euKUvVz-H9wW0kcU-yclxvm_TmIaotf4DBP1HHcniOv30wxTeh8FUrbCTO38QIqAH4WAdTbgJIL9TbOnKyn7T-FQj-cAvxz01pjYEJVfLM_yWKEJKRV-QDyV1JnzA5QmrYSZ_vealeatCX3NijIZGBnBb0jd-F3BBI_Adzq3bGPiJIUoBbXwe7cgo5DWfwfl1afldmAyN3ssj_xolZpIIvKyQmnf6wmk-NsOBEGKtbJakVguF0DwQDM-dWqoG1VH80JZNeSYGRQBKuIESIMjfVsdL8KeOMreqFZsZJ7KDkPAVMv4XNZPL1qXmpEF5dtThviApuAfcrG0XnM=w363-h337-no?authuser=0"
   />
 );
 const logo2 = (
   <img
-    style={{ width: "18rem" }}
-    src="https://lh3.googleusercontent.com/I_nJjL0R26VpMXV9702jErEn9_tnDyu-aSMCIwMYEbLNqwbx4QPHGlHrBm6lqocdVipOMQHwgRvOiiWtwu29HP_WYDQEg_-WpoHCHQ_4gu2sKhVpu8m9I44nO-EWPSMl2twJ9LISXrwZSJCbfvQ-VW-PoYQwlIYvOq4__Q7-Lh7sH6ZAyIjx4Y99WzJdog7WXFoKtmVCQnRHcuBk3mgNePuhU4NhW_Ak14bhBsbYxwvAgFrR9rGquLK6_ThY6ooHUYj-Cj8Ca7pmlEN1LMCeXpWXPhjw44xOZvG8gvOUr4Sj3fJ_xMQRQTtHfS0JoYDNGFXLaxfutoQyMxnhYio9Pwl-1qxAlsi_xhNiqBkZHfsHnxoiRiF61_zmSaSfbfoH8zxrulYu234T4IqF2qC4k8lmEaiacngtV83qHCW87tx0_7tvaaBJ5NWhgoMXTizCREMMEkNcqec5NNkTIGWBjr9H9OCjgnJSdCdMA_J4_B772Ja3BSByqu-FSGgW1TMkGgJIe9xYO1Qt8Pe9IFmDaLhtBVhd6HZPEJ0dB8FERMWTNpMxbstc9qrFEYGXSEJ2Vw3DVQFshdZfiyPmmDVR7mlYr-LVn4vrPSAg6xKQUsI6BZr3Xez2lv4ExTmOmmGGEgJsPVPmA8VaY9v7N_EEEtGXwbUx9-vtD4j55_HLQI0v-DJvn4AtZycbMb95cN1DtpBCzWzieyqUf_yWnMmcUm5p-HfEjHR0PsvdbZ5wBKxYqvtwkTaCV57wL08=w568-h757-no?authuser=0"
+    style={{ width: "18rem", borderRadius:"10px" }}
+    src="https://www.pngmart.com/files/7/Typewriter-PNG-Free-Download.png"
   />
 );
 const HeaderDiv = styled.div`
@@ -29,7 +29,7 @@ const HeaderDiv = styled.div`
 function Header({ children }) {
   return (
     <HeaderDiv>
-      {logo}
+      {/* {logo} */}
       {children}
     </HeaderDiv>
   );
