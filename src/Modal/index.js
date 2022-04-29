@@ -4,8 +4,6 @@ import styled from "styled-components";
 
 const ModalDiv = styled.div`
   z-index: 5;
-
-  width: 100%;
   height: 100%;
   margin: 0;
   background: rgba(32, 35, 41, 0.8);

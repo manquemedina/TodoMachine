@@ -51,6 +51,9 @@ const LoadingCard = styled.div`
 const Span = styled.span`
   color: #888;
 `;
+const Span2 = styled.span`
+  color: #eac253;
+`;
 
 //una vez creado nuestro contexto podemos eliminar las props de los componentes Counter y Search, ya que ahora las van a consumir de nuestro TodoContext.Provider
 function AppUI() {
@@ -67,7 +70,9 @@ function AppUI() {
   return (
     <PageWrapper>
       <Header>
-        <Span>N</Span>⊙﹏⊙<Span>tas!</Span>
+        <Span>N</Span>
+        <Span2>⊙﹏⊙</Span2>
+        <Span>tas!</Span>
       </Header>
       <TodoCounter />
       {/* El componente TodoList va a consumir nuestros estados loading y error, implementados dentro del custom Hook, y el resto de props (ahora en el index.js de la carpeta TodoContext), mediate useContext(TodoContext) */}

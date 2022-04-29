@@ -15,7 +15,7 @@ const TextArea = styled.textarea`
   font-family: "Quicksand", sans-serif;
   font-size: 1rem;
   border: none;
-  background-color: #222;
+  background-color: #333;
   color: #fff;
 `;
 const Label = styled.label`

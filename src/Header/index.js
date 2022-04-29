@@ -27,11 +27,6 @@ const HeaderDiv = styled.div`
   color: #fff;
 `;
 function Header({ children }) {
-  return (
-    <HeaderDiv>
-      {/* {logo} */}
-      {children}
-    </HeaderDiv>
-  );
+  return <HeaderDiv>{children}</HeaderDiv>;
 }
 export { Header, logo, typeWritterImg };

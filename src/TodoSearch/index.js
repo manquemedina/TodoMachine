@@ -26,6 +26,7 @@ const SearchInput = styled.input`
   text-align: center;
   font-size: 1rem;
   font-family: "Quicksand", sans-serif;
+  transition: all 0.25s;
   :hover {
     width: 16rem;
     border: 2px solid #8c8c8c;
