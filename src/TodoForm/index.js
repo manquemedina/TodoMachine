@@ -34,13 +34,22 @@ const BtnDiv = styled.div`
   align-items: center;
   padding: 1rem;
 `;
-const Btn = styled.button`
+const BtnAdd = styled.button`
   font-family: "Quicksand", sans-serif;
   font-size: 1.2rem;
   font-weight: 700;
   padding: 1rem;
-  background-color: #EAC253;
+  background-color: #eac253;
   color: #333;
+  border-radius: 10px;
+`;
+const BtnX = styled.button`
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 1rem;
+  background-color: #777;
+  color: #222;
   border-radius: 10px;
 `;
 
@@ -62,17 +71,17 @@ function TodoForm() {
 
   return (
     <Form onSubmit={onSubmit}>
-      <Label>ԅ(≖‿≖ԅ)</Label>
+      <Label>Nueva Nota</Label>
       <TextArea
         value={newTodoValue}
         onChange={onChange}
         placeholder="escribe aquí tu nota:"
       />
       <BtnDiv>
-        <Btn type="submit">Añadir</Btn>
-        <Btn type="button" onClick={onCancel}>
+        <BtnAdd type="submit">Añadir</BtnAdd>
+        <BtnX type="button" onClick={onCancel}>
           Cancelar
-        </Btn>
+        </BtnX>
       </BtnDiv>
     </Form>
   );

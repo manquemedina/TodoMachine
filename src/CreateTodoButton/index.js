@@ -26,7 +26,7 @@ export function CreateTodoButton(props) {
   };
   return (
     <StyledDiv>
-      <StyledButton onClick={onClickButton}>ʕ•ᴥ•ʔ</StyledButton>
+      <StyledButton onClick={onClickButton}>ʕ•ᴥ•ʔ ✐</StyledButton>
     </StyledDiv>
   );
 }
