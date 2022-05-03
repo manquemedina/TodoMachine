@@ -1,11 +1,12 @@
 import styled from "styled-components";
+import React from "react";
 
 const StyledTodoItem = styled.li`
   display: flex;
   flex-direction: column;
   text-align: left;
   align-items: center;
-  justify-content: space-between;
+  justify-content: stretch;
   background-color: #666;
   font-family: "Quicksand", sans-serif;
   font-weight: 800;
@@ -26,7 +27,7 @@ const StyledTodoItem = styled.li`
   }
   @media (max-width: 592px) {
     margin: 1rem auto;
-  } ;
+  }
 `;
 const Icondiv = styled.div`
   width: 100%;
@@ -52,7 +53,7 @@ const Span1 = styled.span`
   opacity: 0.7;
   :hover {
     opacity: 1;
-    background-color: #1AF539;
+    background-color: #1af539;
   }
 `;
 const P = styled.p`
@@ -69,13 +70,14 @@ const Span2 = styled.span`
   opacity: 0.7;
   :hover {
     opacity: 1;
-    background-color: #D62323;
+    background-color: #d62323;
   }
 `;
 
 export function TodoItem(props) {
   return (
-    <StyledTodoItem>
+    /* acá va a haber que meter CSS sobre el styled components lo siento BB */
+    <StyledTodoItem className={`${props.done && "TodoItemDone"}`}>
       <P children={props.text} />
       <Icondiv>
         <Span1 onClick={props.onComplete}>✔︎</Span1>

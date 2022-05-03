@@ -66,6 +66,8 @@ function AppUI() {
     deleteTodo,
     openModal,
     setOpenModal,
+    done,
+    setDone,
   } = React.useContext(TodoContext);
   return (
     <PageWrapper>
@@ -103,6 +105,8 @@ function AppUI() {
               } /* //el atributo "key" debe ser un identificador único para c/item, en éste caso el texto del todo */
               text={todo.text}
               completed={todo.completed}
+              done={todo.done}
+              /* setDone={todo.setDone} */
               onComplete={() => completeTodo(todo.text)}
               onDelete={() => deleteTodo(todo.text)} //creamos atributo onComplete que va a llamar a la función pasandole su identificador único, todo.text. Este atributo lo pasamos al método onclick de nuestro span✔️ en todoItem
             />
