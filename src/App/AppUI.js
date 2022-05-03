@@ -49,10 +49,15 @@ const LoadingCard = styled.div`
   opacity: 0.9;
 `;
 const Span = styled.span`
-  color: #888;
+  color: #fff;
 `;
 const Span2 = styled.span`
   color: #eac253;
+`;
+const ImgDiv = styled.div`
+  @media (max-width: 592px) {
+    display: none;
+  } ;
 `;
 
 //una vez creado nuestro contexto podemos eliminar las props de los componentes Counter y Search, ya que ahora las van a consumir de nuestro TodoContext.Provider
@@ -81,7 +86,7 @@ function AppUI() {
       <TodoWrapper>
         <AddTaskWrapper>
           <CreateTodoButton openModal={openModal} setOpenModal={setOpenModal} />
-          {typeWritterImg}
+          <ImgDiv>{typeWritterImg}</ImgDiv>
         </AddTaskWrapper>
 
         <TodoList>
