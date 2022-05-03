@@ -19,7 +19,7 @@ const CounterDiv = styled.div`
   font-size: 1.2rem;
   font-family: "Quicksand", sans-serif;
   border-radius: 10px;
-  @media (max-width: 415px) {
+  @media (max-width: 425px) {
     flex-direction: column;
     align-items: center;
     justify-content: center;

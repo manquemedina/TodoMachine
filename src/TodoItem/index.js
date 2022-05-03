@@ -15,8 +15,8 @@ const StyledTodoItem = styled.li`
   opacity: 0.7;
   margin: 0.5rem 1rem;
   padding: 1rem;
-  height: fit-content;
-  max-width: fit-content;
+  /* height: fit-content; */
+  /* max-width: fit-content; */
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   transition: all 0.25s;
   :hover {
@@ -52,6 +52,7 @@ const Span1 = styled.span`
   opacity: 0.7;
   :hover {
     opacity: 1;
+    background-color: #1AF539;
   }
 `;
 const P = styled.p`
@@ -68,6 +69,7 @@ const Span2 = styled.span`
   opacity: 0.7;
   :hover {
     opacity: 1;
+    background-color: #D62323;
   }
 `;
 
