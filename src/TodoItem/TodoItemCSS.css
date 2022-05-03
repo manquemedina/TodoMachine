@@ -64,7 +64,7 @@
   align-items: center;
   justify-content: right;
   text-align: center;
-  opacity: 0;
+  opacity: 0.5;
   color: #fff;
   transition: opacity 0.25s;
 }
