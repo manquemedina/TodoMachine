@@ -1,0 +1,101 @@
+.StyledTodoItem {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #eac253;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 900;
+  font-size: larger;
+  border: solid 2px white;
+  border-radius: 10px;
+  color: #111;
+  opacity: 0.7;
+  margin: 0.5rem 1rem;
+  padding: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  transition: all 0.25s;
+  @media (max-width: 592px) {
+    margin: 1rem auto;
+  }
+}
+.StyledTodoItem:hover {
+  opacity: 1;
+  transform: scale(1.02);
+}
+.StyledTodoItemDone {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #333;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 800;
+  font-size: larger;
+  border: solid 2px white;
+  border-radius: 10px;
+  color: #fff;
+  opacity: 0.6;
+  margin: 0.5rem 1rem;
+  padding: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  transition: all 0.25s;
+  filter: blur(1px);
+  @media (max-width: 592px) {
+    margin: 1rem auto;
+  }
+}
+.TodoItemDone:hover {
+  background-color: #555;
+  opacity: 1;
+  transform: scale(1.02);
+}
+.P {
+  padding: 1rem;
+  margin: 0.25rem;
+}
+.IconDiv {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding: 1.5rem 1rem 0;
+  align-items: center;
+  justify-content: right;
+  text-align: center;
+  opacity: 0;
+  color: #fff;
+  transition: opacity 0.25s;
+}
+.IconDiv:hover {
+  opacity: 1;
+}
+
+.Span1 {
+  margin: 0 0.2rem;
+  cursor: pointer;
+  width: 2.5rem;
+  padding: 0.25rem;
+  border-radius: 50px;
+  background-color: #999;
+  opacity: 0.7;
+}
+.Span1:hover {
+  opacity: 1;
+  background-color: #1af539;
+}
+
+.Span2 {
+  margin: 0 0.2rem;
+  cursor: pointer;
+  width: 2.5rem;
+  padding: 0.25rem;
+  border-radius: 50px;
+  background-color: #555;
+  opacity: 0.7;
+}
+.Span2:hover {
+  opacity: 1;
+  background-color: #d62323;
+}
