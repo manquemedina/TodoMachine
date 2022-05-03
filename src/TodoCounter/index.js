@@ -37,8 +37,8 @@ export function TodoCounter() {
   return (
     <CounterDiv>
       <H2>
-        <span>{completedTodos} chekeadas, </span>
-        <Span>{totalTodos - completedTodos} pendientes.</Span>
+        <span>{completedTodos} chekeada(s), </span>
+        <Span>{totalTodos - completedTodos} pendiente(s).</Span>
       </H2>
       <TodoSearch />
     </CounterDiv>
