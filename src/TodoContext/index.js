@@ -54,7 +54,11 @@ function TodoProvider(props) {
     newTodos.splice(todoIndex, 1);
     saveTodos(newTodos);
   };
-
+  const onSearchValueChange = (event) => {
+    //función handler que escucha valores del input
+    console.log(event.target.value);
+    setSearchValue(event.target.value); //método actualizador de estado
+  };
   return (
     <TodoContext.Provider
       value={{
@@ -64,6 +68,7 @@ function TodoProvider(props) {
         completedTodos,
         searchValue,
         setSearchValue,
+        onSearchValueChange,
         searchedTodos,
         addTodo,
         completeTodo,
