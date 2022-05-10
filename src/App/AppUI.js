@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { TodoContext } from "../TodoContext";
 import { TodoCounter } from "../TodoCounter";
+import { TodoSearch } from "../TodoSearch";
 import { TodoItem } from "../TodoItem";
 import { TodoList } from "../TodoList";
 /* import { TodoSearch } from "../TodoSearch"; */
@@ -36,7 +37,6 @@ const AddTaskWrapper = styled.div`
   background-color: #eac253;
   box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
 `;
-
 const LoadingCard = styled.div`
   background-color: #777;
   color: #333;
@@ -60,6 +60,37 @@ const ImgDiv = styled.div`
   } ;
 `;
 
+//Divs de TodoCounter
+const CounterDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  align-items: center;
+  justify-content: space-between;
+  justify-items: center;
+  margin: 1rem 1rem;
+  text-align: center;
+  color: #fff;
+  background-color: #8c8c8c;
+  /* opacity: 0.7; */
+  font-size: 1.2rem;
+  font-family: "Quicksand", sans-serif;
+  border-radius: 10px;
+  @media (max-width: 425px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  } ;
+`;
+const CounterH2 = styled.h2`
+  margin: 2rem;
+`;
+const YellowSpan = styled.span`
+  color: #eac253;
+`;
+//Divs del TodoSearch
+
+
 //una vez creado nuestro contexto podemos eliminar las props de los componentes Counter y Search, ya que ahora las van a consumir de nuestro TodoContext.Provider
 function AppUI() {
   //usamos .useContext(TodoContext) para traer las props de nuestro provider y así evitamos tener que envolver todo en etiqueta <Consumer>
@@ -73,6 +104,8 @@ function AppUI() {
     setOpenModal,
     done,
     setDone,
+    totalTodos,
+    completedTodos,
   } = React.useContext(TodoContext);
   return (
     <PageWrapper>
@@ -81,7 +114,15 @@ function AppUI() {
         <Span2>⊙﹏⊙</Span2>
         <Span>tas!</Span>
       </Header>
-      <TodoCounter />
+      <TodoCounter>
+        <CounterDiv>
+          <CounterH2>
+            <span>{completedTodos} chekeada(s), </span>
+            <YellowSpan>{totalTodos - completedTodos} pendiente(s).</YellowSpan>
+          </CounterH2>
+          <TodoSearch />
+        </CounterDiv>
+      </TodoCounter>
       {/* El componente TodoList va a consumir nuestros estados loading y error, implementados dentro del custom Hook, y el resto de props (ahora en el index.js de la carpeta TodoContext), mediate useContext(TodoContext) */}
       <TodoWrapper>
         <AddTaskWrapper>

@@ -74,7 +74,6 @@ export function TodoSearch() {
           onChange={onSearchValueChange} //asignación de handler al evento onChange
         />
       </TodoSearchDiv>
-      {/* ésto está solo a fines de ver cómo renderiza */}
     </>
   );
 }
