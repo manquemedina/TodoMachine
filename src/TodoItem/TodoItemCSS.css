@@ -73,11 +73,12 @@
 .Span1 {
   margin: 0 0.2rem;
   cursor: pointer;
-  width: 2.5rem;
+  width: 1.5rem;
   padding: 0.25rem;
   border-radius: 50px;
   background-color: #999;
   opacity: 0.7;
+  font-size: smaller;
 }
 .Span1:hover {
   opacity: 1;
@@ -87,11 +88,12 @@
 .Span2 {
   margin: 0 0.2rem;
   cursor: pointer;
-  width: 2.5rem;
+  width: 1.5rem;
   padding: 0.25rem;
   border-radius: 50px;
   background-color: #555;
   opacity: 0.7;
+  font-size: smaller; 
 }
 .Span2:hover {
   opacity: 1;

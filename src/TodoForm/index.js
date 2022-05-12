@@ -1,5 +1,4 @@
 import React from "react";
-import { TodoContext } from "../TodoContext";
 import styled from "styled-components";
 
 const Form = styled.form`
@@ -42,6 +41,7 @@ const BtnAdd = styled.button`
   background-color: #eac253;
   color: #333;
   border-radius: 10px;
+  border-color: #fff;
 `;
 const BtnX = styled.button`
   font-family: "Quicksand", sans-serif;
@@ -51,11 +51,11 @@ const BtnX = styled.button`
   background-color: #777;
   color: #222;
   border-radius: 10px;
+  border-color: #fff;
 `;
 
-function TodoForm() {
+function TodoForm({addTodo, setOpenModal}) {
   const [newTodoValue, setNewTodoValue] = React.useState("");
-  const { addTodo, setOpenModal } = React.useContext(TodoContext);
 
   const onChange = (event) => {
     setNewTodoValue(event.target.value);
