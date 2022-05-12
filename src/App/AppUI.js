@@ -32,7 +32,7 @@ const AddTaskWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 0.5rem 1rem 1rem;
+  margin: 1rem 0.5rem 1rem 1rem;
   border-radius: 10px;
   background-color: #eac253;
   box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
@@ -56,6 +56,7 @@ const Span = styled.span`
 const Span2 = styled.span`
   color: #eac253;
 `;
+//MediaQuerie para la imágen de typewritter
 const ImgDiv = styled.div`
   @media (max-width: 592px) {
     display: none;

@@ -2,10 +2,12 @@ import styled from "styled-components";
 import React from "react";
 import "./TodoItemCSS.css";
 
-const StyledTodoItem = styled.li``;
+const StyledTodoItem = styled.li`word-wrap: break-word;`;
 const Icondiv = styled.div``;
 const Span1 = styled.span``;
-const P = styled.p``;
+const P = styled.p`
+
+`;
 const Span2 = styled.span``;
 
 export function TodoItem(props) {

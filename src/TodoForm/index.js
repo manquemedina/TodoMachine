@@ -78,10 +78,10 @@ function TodoForm() {
         placeholder="escribe aquí tu nota:"
       />
       <BtnDiv>
-        <BtnAdd type="submit">Añadir</BtnAdd>
         <BtnX type="button" onClick={onCancel}>
           Cancelar
         </BtnX>
+        <BtnAdd type="submit">Añadir</BtnAdd>
       </BtnDiv>
     </Form>
   );
