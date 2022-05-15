@@ -13,7 +13,14 @@ const TodoSection = styled.section`
 export function TodoList(props) {
   return (
     <TodoSection>
-      <Grid>{props.children}</Grid>
+     
+      <Grid>
+        {(!props.loading && !props.searchedTodos.length) && props.onEmptyTodos()}
+        {props.error && props.onError()}
+        {props.loading && props.onLoading()}
+        {props.searchedTodos.map(props.render)}
+        {props.children}
+      </Grid>
     </TodoSection>
   );
 }

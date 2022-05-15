@@ -193,8 +193,8 @@ function App() {
           <CreateTodoButton openModal={openModal} setOpenModal={setOpenModal} />
           <ImgDiv>{typeWritterImg}</ImgDiv>
         </AddTaskWrapper>
-        <TodoList>
-          {/* las lineas de error y loading/!loading funcionan como un condicional, si error es true entonces el contenido de la etiqueta <p>, (que es true por defecto) indican que se cumplen las dos condiciones del && y renderiza, y si error es false da igual xq ya no va a cumplir el && así que evalúa siguiente caso, loading y así. */}
+        {/* primera versión de TodoList sin render props */}
+        {/*         <TodoList>
           {error && <LoadingCard>ups! ಥ﹏ಥ</LoadingCard>}
           {loading && (
             <LoadingCard>
@@ -209,18 +209,43 @@ function App() {
 
           {searchedTodos.map((todo) => (
             <TodoItem
-              key={
-                todo.text
-              } /* //el atributo "key" debe ser un identificador único para c/item, en éste caso el texto del todo */
+              key={todo.text}
               text={todo.text}
               completed={todo.completed}
               done={todo.done}
-              /* setDone={todo.setDone} */
               onComplete={() => completeTodo(todo.text)}
-              onDelete={() => deleteTodo(todo.text)} //creamos atributo onComplete que va a llamar a la función pasandole su identificador único, todo.text. Este atributo lo pasamos al método onclick de nuestro span✔️ en todoItem
+              onDelete={() => deleteTodo(todo.text)}
             />
           ))}
-        </TodoList>
+        </TodoList> */}
+
+        {/* TODO LIST VERSIÓN RENDER PROPS */}
+        <TodoList
+          error={error}
+          loading={loading}
+          searchedTodos={searchedTodos}
+          onError={() => <LoadingCard>ups! ಥ﹏ಥ</LoadingCard>}
+          onLoading={() => (
+            <LoadingCard>
+              <h2>Cargando notas 📀</h2>
+            </LoadingCard>
+          )}
+          onEmptyTodos={() => (
+            <LoadingCard>
+              <h2>Agrega tu primera nota! ✐ </h2>
+            </LoadingCard>
+          )}
+          render={(todo) => (
+            <TodoItem
+              key={todo.text}
+              text={todo.text}
+              completed={todo.completed}
+              done={todo.done}
+              onComplete={() => completeTodo(todo.text)}
+              onDelete={() => deleteTodo(todo.text)}
+            />
+          )}
+        />
       </TodoWrapper>
       {openModal && (
         <Modal>
