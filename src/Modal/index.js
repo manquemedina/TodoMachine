@@ -6,12 +6,15 @@ const ModalDiv = styled.div`
   z-index: 5;
   height: 100%;
   margin: 0;
-  background: rgba(32, 35, 41, 0.8);
+  background: #222;
+  border: 2px solid #999;
+  border-radius: 10px;
   position: fixed;
-  top: 135px;
-  left: -10px;
+  top: 0px;
+  //si descomento ésto el modal vuelve a ocupar todo el viewport, así como está queda de sidebar, belleza
+/*   left: -10px;
   right: -10px;
-  bottom: -10px;
+  bottom: -10px; */
   display: flex;
   flex-direction: row;
   align-items: center;
